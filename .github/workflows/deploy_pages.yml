@@ -26,9 +26,9 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish AElfBlazor.SampleApp/AElfBlazor.SampleApp.csproj -c Release -o release --nologo
 
-      # changes the base-tag in index.html from '/' to 'AElfBlazor.SampleApp' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to AelfFund
-      run: sed -i 's/<base href="\/" \/>/<base href="\/AelfFund\/" \/>/g' release/wwwroot/index.html
+      # changes the base-tag in index.html from '/' to 'AElfBlazor' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to AElfBlazor
+      run: sed -i 's/<base href="\/" \/>/<base href="\/AElfBlazor\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
