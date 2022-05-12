@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System.Dynamic;
 
 namespace AElfBlazor.SampleApp.Pages
 {
@@ -20,7 +21,9 @@ namespace AElfBlazor.SampleApp.Pages
 
             if (HasExtension)
             {
-                await AElfService.InitializeNightElfAsync();
+                var testnetUrl = "https://explorer-test.aelf.io/chain";
+
+                await AElfService.InitializeNightElfAsync("Blazor Sample App", testnetUrl);
 
                 IsConnected = await AElfService.IsConnectedAsync();
             }
@@ -50,6 +53,16 @@ namespace AElfBlazor.SampleApp.Pages
         {
             var result = await AElfService.GetBalanceAsync();
             RpcResult = $"Balance result: {result?.Symbol} : {result?.ELFBalance}";
+        }
+
+        public async Task ExecuteSmartContractAsync()
+        {
+            var address = "address";
+            string functionName = "Method";
+            dynamic payload = new ExpandoObject();
+            payload.property = "value";
+
+            var txId = await AElfService.ExecuteSmartContractAsync(address, functionName, payload);
         }
     }
 }

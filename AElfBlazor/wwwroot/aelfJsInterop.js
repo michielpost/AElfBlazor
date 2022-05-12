@@ -1,11 +1,6 @@
 // This is a JavaScript module that is loaded on demand. It can export any number of
 // functions, and may import other JavaScript modules if required.
 
-//const aelf = new AElf(new AElf.providers.HttpProvider('https://explorer-test-side01.aelf.io/chain'));
-const nodeUrl = "https://explorer-test.aelf.io/chain";
-//const nodeUrl = "https://explorer-test-side01.aelf.io/chain";
-//const nodeUrl = "https://aelf-test-node.aelf.io/chain";
-
 const tokenContractName = 'AElf.ContractNames.Token';
 let tokenContractAddress;
 
@@ -23,9 +18,9 @@ export function loadJs(sourceUrl) {
     tag.src = sourceUrl;
     tag.type = "text/javascript";
 
-    tag.onload = function () {
-        console.log("Script loaded successfully");
-    }
+    //tag.onload = function () {
+    //    console.log("Script loaded successfully");
+    //}
 
     tag.onerror = function () {
         console.error("Failed to load script");
@@ -65,7 +60,7 @@ class NightElfCheck {
     }
 }
 
-export async function Initialize() {
+export async function Initialize(nodeUrl, appName) {
     const nightElfCheck = NightElfCheck.getInstance();
     var message = await nightElfCheck.check;
 
@@ -76,7 +71,7 @@ export async function Initialize() {
         httpProvider: [
             nodeUrl,
         ],
-        appName: 'aelf fund',
+        appName: appName,
         // If you don't set pure=true, you will get old data structure which is not match aelf-sdk.js return.
         // v1.1.3  
         pure: true
@@ -98,7 +93,6 @@ export async function GetBalance() {
 
         var callResult = await contractResult.GetBalance.call(payload1);
 
-        // If you use a framework like react, this process will become easier
         if (callResult) {
             return callResult;
         }
@@ -107,22 +101,35 @@ export async function GetBalance() {
     return null;
 }
 
-export async function UseFaucet() {
+export async function ReadSmartContract(address, method, payload) {
     const wallet1 = {
         address: walletAddress
     };
 
-    var contractResult = await aelf.chain.contractAt("2M24EKAecggCnttZ9DUUMCXi4xC67rozA87kFgid9qEwRUMHTs", wallet1);
+    var contractResult = await aelf.chain.contractAt(address, wallet1);
 
     if (contractResult) {
-        const payload1 = {
-            symbol: 'ELF',
-            amount: "10000000000"
-        };
+        var callResult = await contractResult[method].call(payload);
 
-        var callResult = await contractResult.Take(payload1);
+        if (callResult) {
+            return callResult;
+        }
+    }
 
-        // If you use a framework like react, this process will become easier
+    return null;
+}
+
+
+export async function ExecuteSmartContract(address, method, payload) {
+    const wallet1 = {
+        address: walletAddress
+    };
+
+    var contractResult = await aelf.chain.contractAt(address, wallet1);
+
+    if (contractResult) {
+        var callResult = await contractResult[method](payload);
+
         if (callResult) {
             return callResult.TransactionId;
         }
@@ -167,7 +174,6 @@ export async function Login() {
             },
         });
 
-        console.log(result);
         walletAddress = JSON.parse(result.detail).address;
 
         const wallet1 = {
@@ -196,15 +202,12 @@ export async function Logout() {
             chainId: "AELF",
             address: walletAddress,
         });
-
-        console.log(result);
     }
 };
 
 export async function Test () {
     // get chain status
     const chainStatus = await aelf.chain.getChainStatus();
-    console.log("ok:");
     console.log(chainStatus);
     // get genesis contract address
     // const GenesisContractAddress = chainStatus.GenesisContractAddress;

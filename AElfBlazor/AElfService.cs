@@ -1,6 +1,7 @@
 ﻿using AElfBlazor.Models;
 using Microsoft.JSInterop;
 using System;
+using System.Dynamic;
 using System.Threading.Tasks;
 
 namespace AElfBlazor
@@ -31,7 +32,7 @@ namespace AElfBlazor
             return jsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/AElfBlazor/aelfJsInterop.js");
         }
 
-        public async Task<bool> HasNightElfAsync()
+        public async ValueTask<bool> HasNightElfAsync()
         {
             var module = await moduleTask.Value;
 
@@ -40,7 +41,7 @@ namespace AElfBlazor
             return result;
         }
 
-        public async Task InitializeNightElfAsync()
+        public async ValueTask InitializeNightElfAsync(string appName, string nodeUrl = "https://explorer-test.aelf.io/chain")
         {
             var module = await moduleTask.Value;
 
@@ -50,10 +51,22 @@ namespace AElfBlazor
                 jsLoaded = true;
             }
 
-            await module.InvokeVoidAsync("Initialize");
+            await module.InvokeVoidAsync("Initialize", nodeUrl, appName);
         }
 
-        public async Task<bool> IsConnectedAsync()
+        public async ValueTask<string> ExecuteSmartContractAsync(string address, string functionName, ExpandoObject payload)
+        {
+            var module = await moduleTask.Value;
+            return await module.InvokeAsync<string>("ExecuteSmartContract", address, functionName, payload);
+        }
+
+        public async ValueTask<T> ReadSmartContractAsync<T>(string address, string functionName, ExpandoObject payload)
+        {
+            var module = await moduleTask.Value;
+            return await module.InvokeAsync<T>("ReadSmartContract", address, functionName, payload);
+        }
+
+        public async ValueTask<bool> IsConnectedAsync()
         {
             var module = await moduleTask.Value;
             var result = await module.InvokeAsync<bool>("IsConnected");
@@ -61,7 +74,7 @@ namespace AElfBlazor
             return result;
 
         }
-        public async Task<string?> LoginAsync()
+        public async ValueTask<string?> LoginAsync()
         {
             var module = await moduleTask.Value;
             var result = await module.InvokeAsync<string?>("Login");
@@ -69,31 +82,25 @@ namespace AElfBlazor
             Console.WriteLine($"Login: {result}");
             return string.IsNullOrEmpty(result) ? null : result;
         }
-        public async Task<string?> GetAddressAsync()
+        public async ValueTask<string?> GetAddressAsync()
         {
             var module = await moduleTask.Value;
             var result = await module.InvokeAsync<string?>("GetAddress");
             Console.WriteLine($"GetAddress: {result}");
             return string.IsNullOrEmpty(result) ? null : result;
         }
-        public async Task LogoutAsync()
+        public async ValueTask LogoutAsync()
         {
             var module = await moduleTask.Value;
             await module.InvokeVoidAsync("Logout");
         }
 
-        public async Task<BalanceResult?> GetBalanceAsync()
+        public async ValueTask<BalanceResult?> GetBalanceAsync()
         {
             var module = await moduleTask.Value;
             var result = await module.InvokeAsync<BalanceResult?>("GetBalance");
             Console.WriteLine("sym:" + result?.Symbol);
             return result;
-        }
-
-        public async ValueTask<string> UseFaucetAsync()
-        {
-            var module = await moduleTask.Value;
-            return await module.InvokeAsync<string>("UseFaucet");
         }
 
         public async ValueTask DisposeAsync()
