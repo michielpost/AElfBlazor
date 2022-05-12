@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AElfBlazor
 {
-    // This class provides JavaScript functionality for MetaMask wrapped
+    // This class provides JavaScript functionality for Night Elf wrapped
     // in a .NET class for easy consumption. The associated JavaScript module is
     // loaded on demand when first needed.
     //
