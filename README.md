@@ -1,11 +1,11 @@
 # AElfBlazor
-Use the [Night Elf Extension](https://chrome.google.com/webstore/detail/aelf-explorer-extension-d/mlmlhipeonlflbcclinpbmcjdnpnmkpf) with Blazor WebAssembly to communicate with the AElf Blockchain
+Use the [Night Elf Extension](https://chrome.google.com/webstore/detail/aelf-explorer-extension-d/mlmlhipeonlflbcclinpbmcjdnpnmkpf) with Blazor WebAssembly to communicate with the aelf Blockchain
 
-This library provides an easy helper to use AElf with Blazor WebAssembly.
+This library provides an easy helper to use aelf with Blazor WebAssembly.
 
 **[Live Demo](https://michielpost.github.io/AElfBlazor/)**
 
-This project was created for the [AElf Legend X Hackathon](https://aelf.devpost.com) and allows C# developers to use Blazor to create web3 dapps for the AElf Blockchain!
+This project was created for the [aelf Legend X Hackathon](https://aelf.devpost.com) and allows C# developers to use Blazor to create web3 dapps for the aelf Blockchain!
 
 ## How to use
 See included Blazor sample app.
