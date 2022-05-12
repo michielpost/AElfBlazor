@@ -1,0 +1,36 @@
+﻿@page "/"
+
+<PageTitle>AElf Blazor Sample App</PageTitle>
+
+@if (!HasExtension)
+{
+    <p>No NIGHT ELF Extension. Please install <a href="https://chrome.google.com/webstore/detail/aelf-explorer-extension-d/mlmlhipeonlflbcclinpbmcjdnpnmkpf" target="_blank">NIGHT ELF</a>.</p>
+}
+else if (!IsConnected)
+{
+    <button class="btn btn-primary" @onclick="LoginAsync">Click to initialize connection with NIGHT ELF</button>
+    <br />
+    <br />
+}
+else
+{
+      <button class="btn btn-primary" @onclick="LogoutAsync">Disconnect</button>
+    <br />
+
+    <button class="btn btn-primary" @onclick="GetSelectedAddress">Get Selected Address</button>
+    <br />
+    <p>Address: @SelectedAddress</p>
+    <br />
+
+    <button class="btn btn-primary" @onclick="GetBalance">Get Balance examle</button>
+    <br />
+    <br />
+    <p>@RpcResult</p>
+    <br />
+
+}
+
+
+
+<small>Source code and docs available on <a href="https://github.com/michielpost/AElfBlazor" target="_blank">GitHub</a></small>
+

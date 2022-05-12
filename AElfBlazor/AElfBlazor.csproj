@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Authors>Michiel Post</Authors>
+		<Version>0.1.0</Version>
+		<Product>AElfBlazor</Product>
+		<PackageProjectUrl>https://github.com/michielpost/AElfBlazor</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/michielpost/AElfBlazor</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>aelf blockchain web3 blazor</PackageTags>
+		<Description>AElf Blazor Extension</Description>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.1" />
+	</ItemGroup>
+
+</Project>
