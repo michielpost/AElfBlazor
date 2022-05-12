@@ -5,7 +5,7 @@ This library provides an easy helper to use AElf with Blazor WebAssembly.
 
 **[Live Demo](https://michielpost.github.io/AElfBlazor/)**
 
-This project was created for the AElf Legend X Hackathon and allows C# developers to use Blazor to create web3 dapps for the AElf Blockchain!
+This project was created for the [AElf Legend X Hackathon](https://aelf.devpost.com) and allows C# developers to use Blazor to create web3 dapps for the AElf Blockchain!
 
 ## How to use
 See included Blazor sample app.
