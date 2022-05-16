@@ -1,4 +1,6 @@
 # AElfBlazor
+![aef Blazor SDK](images/logo_small.png)
+
 Use the [Night Elf Extension](https://chrome.google.com/webstore/detail/aelf-explorer-extension-d/mlmlhipeonlflbcclinpbmcjdnpnmkpf) with Blazor WebAssembly to communicate with the aelf Blockchain
 
 This library provides an easy helper to use aelf with Blazor WebAssembly.
@@ -80,6 +82,16 @@ var result = await AElfService.ReadSmartContractAsync<MyResultObject>(address, f
 //Execute a method and receive a transaction id back:
 var txId = await AElfService.ExecuteSmartContractAsync(address, functionName, payload);
 ```
+
+## Screenshots
+Initialize the connection
+![Initialize the connection](images/screenshot01.png)
+
+Interact with the extension
+![Interact with the extension](images/screenshot02.png)
+
+Easy usage from C#
+![Easy usage from C#](images/screenshot03.png)
 
 
 ## Reference
