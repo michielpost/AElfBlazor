@@ -7,6 +7,13 @@ This library provides an easy helper to use aelf with Blazor WebAssembly.
 
 This project was created for the [aelf Legend X Hackathon](https://aelf.devpost.com) and allows C# developers to use Blazor to create web3 dapps for the aelf Blockchain!
 
+## Features
+- Install with a single line of C# code
+- Easily connect to the Night Elf extension from your C# Blazor WebAssembly App
+- Detect if the extension is installed
+- Get the user's address and balance
+- Call and execute smart contracts
+
 ## How to use
 See included Blazor sample app.
 
