@@ -15,6 +15,7 @@ This project was created for the [aelf Legend X Hackathon](https://aelf.devpost.
 - Detect if the extension is installed
 - Get the user's address and balance
 - Call and execute smart contracts
+- Get the transaction status
 
 ## How to use
 See included Blazor sample app.
