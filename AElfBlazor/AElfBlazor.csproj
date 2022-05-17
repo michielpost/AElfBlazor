@@ -8,7 +8,7 @@
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<Authors>Michiel Post</Authors>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<Product>AElfBlazor</Product>
 		<PackageProjectUrl>https://github.com/michielpost/AElfBlazor</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/michielpost/AElfBlazor</RepositoryUrl>
