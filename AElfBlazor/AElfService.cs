@@ -1,4 +1,5 @@
 ﻿using AElfBlazor.Models;
+using AelfFund.Web.Models;
 using Microsoft.JSInterop;
 using System;
 using System.Dynamic;
@@ -99,8 +100,13 @@ namespace AElfBlazor
         {
             var module = await moduleTask.Value;
             var result = await module.InvokeAsync<BalanceResult?>("GetBalance");
-            Console.WriteLine("sym:" + result?.Symbol);
             return result;
+        }
+
+        public async ValueTask<TransactionStatusResult> GetTxStatus(string txId)
+        {
+            var module = await moduleTask.Value;
+            return await module.InvokeAsync<TransactionStatusResult>("GetTxStatus", txId);
         }
 
         public async ValueTask DisposeAsync()

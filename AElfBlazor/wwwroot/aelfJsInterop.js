@@ -165,6 +165,11 @@ export async function GetAddress() {
     return walletAddress;
 };
 
+export async function GetTxStatus(txId) {
+    var result = await aelf.chain.getTxResult(txId);
+    return result;
+};
+
 export async function Login() {
     if (aelf) {
         let result = await aelf.login({
