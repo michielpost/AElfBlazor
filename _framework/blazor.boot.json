@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "AElfBlazor.dll": "sha256-\/M0ibHE0bX2EU7JA4KSpV1wRHNjNBwMyhROy9YOfzNE=",
-      "AElfBlazor.SampleApp.dll": "sha256-78FngFz6IAhioJjJd5LfKj6h\/Bh19AHt3Duk3T0HKAo=",
+      "AElfBlazor.dll": "sha256-HxzPLDnkWrzONj7x0sYLW0sIzI1v53rE7DUb6rS8Iz8=",
+      "AElfBlazor.SampleApp.dll": "sha256-kDZzvJL0l8DWsx4\/t9a3rlJVMQUPc01l0B4BO7NgabE=",
       "Microsoft.AspNetCore.Components.dll": "sha256-s3WgNxrEXGNEaP\/EimzumQhELddeIcWd05aa\/InLJ2w=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-OC7FmUhOVgW4eEWvpQO9kizcPa8kwqwmc\/kQhvP2UAc=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-OfawION\/UfFO75U4pMPDVhHt71EbKuF3qxDeiPFGqKo=",
@@ -40,7 +40,7 @@
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-Vtux2eGFF4QYVPg9DLWK8fIv8khYOUf2a5aPczdq+O4=",
       "System.Runtime.dll": "sha256-C94S3A14vyjsyvv4OKzRN\/P6pmeIVuH6Zxj+3T\/aq94=",
       "System.Text.Encodings.Web.dll": "sha256-s\/oEg26\/wBNILW2bnAl9Qy7weHwi8bsYjClYUpDgmM0=",
-      "System.Text.Json.dll": "sha256-DLzi9uV4H+pnXQgL05w5Q9F7P+0nHY3RyROr1p8z0s0="
+      "System.Text.Json.dll": "sha256-j4xRsPSiVJtVC15bMx3TI7kargYkzyS+Tvl3wA84xnA="
     },
     "extensions": null,
     "lazyAssembly": null,
