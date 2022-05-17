@@ -97,7 +97,7 @@ Initialize the connection
 Interact with the extension
 ![Interact with the extension](images/screenshot02.png)
 
-Easy usage from C#
+Easy usage from C#   
 ![Easy usage from C#](images/screenshot03.png)
 
 
