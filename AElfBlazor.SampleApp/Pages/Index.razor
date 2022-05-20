@@ -1,6 +1,8 @@
 ﻿@page "/"
 
-<PageTitle>aelf Blazor Sample App</PageTitle>
+<PageTitle>aelf Blazor SDK Sample dApp</PageTitle>
+
+<h1>aelf Blazor SDK Sample dApp</h1>
 
 @if (!HasExtension)
 {
@@ -25,9 +27,17 @@ else
 
     <button class="btn btn-primary" @onclick="GetBalance">Get Balance examle</button>
     <br />
-    <br />
     <p>@RpcResult</p>
     <br />
+    <p>
+        Other features:
+        <ul>
+            <li>Read values from a smart contract</li>
+            <li>Execute a smart contract function</li>
+            <li>Get transaction status</li>
+        </ul>
+        Visit  <a href="https://github.com/michielpost/AElfBlazor" target="_blank">GitHub</a> for documentation.
+    </p>
 
   @*  <button class="btn btn-primary" @onclick="ExecuteSmartContractAsync">Call a smart contract function</button>
     <br />

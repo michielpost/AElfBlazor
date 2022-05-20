@@ -79,7 +79,7 @@ var balance = await AElfService.GetBalanceAsync();
 
 Read from or execute smart contracts
 ```cs
- var address = "address";
+var address = "address";
 string functionName = "Method";
 dynamic payload = new ExpandoObject();
 payload.property = "value";
