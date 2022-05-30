@@ -18,5 +18,5 @@ jobs:
       - name: Build
         run: dotnet build AElfBlazor.sln --configuration Release
 
-      - name: Publish HueApi
+      - name: Publish NuGet
         run: dotnet nuget push AElfBlazor/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
